@@ -43,12 +43,12 @@ know-* policyId         (g/s)
 public class Main {
     public static void main(String[] args) {
         System.out.println("======Holder1========");
-        PolicyHolder policyHolder1=new PolicyHolder("HealthInsurance",2);
-        PolicyHolder policyHolder2=new PolicyHolder();
+        PolicyHolderInterface policyHolder1=new PolicyHolder("HealthInsurance",2);
+        PolicyHolderInterface policyHolder2=new PolicyHolder();
         policyHolder2.setPolicyType("LifeInsurance");
         policyHolder2.setYears(20);
         if(policyHolder1.getPolicyType()=="HealthInsurance"){
-            HealthInsurance healthInsurance=new HealthInsurance("M123",4000,policyHolder1);
+            HealthInsuranceInterface healthInsurance=new HealthInsurance("M123",4000,policyHolder1);
             policyHolder1.setHealthInsurance(healthInsurance);//by this we set the address inside the policyHolder contained
                                                                     //variable healthInsurance
             healthInsurance.activatePolicy();
@@ -57,7 +57,7 @@ public class Main {
         }
         else {
             System.out.println("======Holder1========");
-            LifeInsurance lifeInsurance=new LifeInsurance("D123",7000,policyHolder1);
+            LifeInsuranceInterface lifeInsurance=new LifeInsurance("D123",7000,policyHolder1);
             policyHolder1.setLifeInsurance(lifeInsurance);
             lifeInsurance.activatePolicy();
             lifeInsurance.terminatePolicy();
@@ -66,16 +66,16 @@ public class Main {
         }
         if(policyHolder2.getPolicyType()=="HealthInsurance"){
             System.out.println("======Holder2========");
-            HealthInsurance healthInsurance=new HealthInsurance("M123",4000,policyHolder2);
+            HealthInsuranceInterface healthInsurance=new HealthInsurance("M123",4000,policyHolder2);
             policyHolder2.setHealthInsurance(healthInsurance);//by this we set the address inside the policyHolder contained
-            //variable healthInsurance
+                                                                //variable healthInsurance
             healthInsurance.activatePolicy();
             healthInsurance.terminatePolicy();
             healthInsurance.freeHealthCheckup();
         }
         else {
             System.out.println("======Holder2========");
-            LifeInsurance lifeInsurance=new LifeInsurance("A123",7000,policyHolder2);
+            LifeInsuranceInterface lifeInsurance=new LifeInsurance("A123",7000,policyHolder2);
             policyHolder2.setLifeInsurance(lifeInsurance);
             lifeInsurance.activatePolicy();
             lifeInsurance.terminatePolicy();

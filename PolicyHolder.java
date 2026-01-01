@@ -1,12 +1,12 @@
-public class PolicyHolder {
+public class PolicyHolder implements PolicyHolderInterface  {
     private String policyType;
     private int years ;
 //    private String policyId;              //this two variable get the value directly to the INSURANCE
-//    private int premiumAmount;               when we sad what are the INSURANCE are available to the policyHolder
+//    private int premiumAmount;               when we said what are the INSURANCE are available to the policyHolder
 
 
-    private HealthInsurance healthInsurance;//by this  policyHolder1 and policyHolder2 can directly communicate
-    private LifeInsurance lifeInsurance;    //and get the value of policyId and premiumAmount,we can achieve this
+    private HealthInsuranceInterface healthInsurance;//by this  policyHolder1 and policyHolder2 can directly communicate
+    private LifeInsuranceInterface lifeInsurance;    //and get the value of policyId and premiumAmount,we can achieve this
                                                 //by passing the address of the Insurance,the policyholder get value using
                                                 //address of the insurance like what we have done in main
 
@@ -34,19 +34,19 @@ public class PolicyHolder {
         this.years = years;
     }
 
-    public HealthInsurance getHealthInsurance() {
+    public HealthInsuranceInterface getHealthInsurance() {
         return healthInsurance;
     }
 
-    public void setHealthInsurance(HealthInsurance healthInsurance) {
+    public void setHealthInsurance(HealthInsuranceInterface healthInsurance) {
         this.healthInsurance = healthInsurance;
     }
 
-    public LifeInsurance getLifeInsurance() {
+    public LifeInsuranceInterface getLifeInsurance() {
         return lifeInsurance;
     }
 
-    public void setLifeInsurance(LifeInsurance lifeInsurance) {
+    public void setLifeInsurance(LifeInsuranceInterface lifeInsurance) {
         this.lifeInsurance = lifeInsurance;
     }
 
